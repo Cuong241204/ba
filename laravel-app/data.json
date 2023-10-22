@@ -1,0 +1,63 @@
+{
+
+    "user": {
+        "email": "cuong242924@gmail.com",
+        "password": "12345678",
+        "address": "Ninh Bình ",
+        "tel": "12345678",
+        "name": "Nguyễn Cường",
+        "birth": "",
+        "day-of-medic": "",
+        "numberCard": "",
+        "wordName": "",
+        "sex": "",
+        "content-of-medic": "",
+        "content-of-medicine": "",
+        "notes": "",
+        "role": "1",
+        "calendar": {
+            "date": ""
+        },
+        "message": ""
+    },
+    "user": {
+        "email": "Quynhlx@gmail.com",
+        "password": "12345678",
+        "address": "Ninh Bình ",
+        "tel": "12345678",
+        "name": "Nguyễn Cường",
+        "birth": "",
+        "day-of-medic": "",
+        "numberCard": "",
+        "wordName": "",
+        "sex": "",
+        "content-of-medic": "",
+        "content-of-medicine": "",
+        "notes": "",
+        "role": "1",
+        "calendar": {
+            "date": ""
+        },
+        "message": ""
+    },
+    "user": {
+        "email": "cuong242924@gmail.com",
+        "password": "12345678",
+        "address": "Ninh Bình ",
+        "tel": "12345678",
+        "name": "Nguyễn Cường",
+        "birth": "",
+        "day-of-medic": "",
+        "numberCard": "",
+        "wordName": "",
+        "sex": "",
+        "content-of-medic": "",
+        "content-of-medicine": "",
+        "notes": "",
+        "role": "1",
+        "calendar": {
+            "date": ""
+        },
+        "message": ""
+    }
+}
