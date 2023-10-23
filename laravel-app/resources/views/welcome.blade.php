@@ -45,8 +45,6 @@
         <div class="carousel-item active">
             <img src="assets/hp2.png" class="d-block w-100" alt="Sunset Over the City"/>
             <div class="carousel-caption d-none d-md-block">
-                <h5>First slide label</h5>
-                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
             </div>
         </div>
 
@@ -54,8 +52,6 @@
         <div class="carousel-item">
             <img src="assets/banner.jpg" class="d-block w-100" alt="Canyon at Nigh"/>
             <div class="carousel-caption d-none d-md-block">
-                <h5>Second slide label</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
         </div>
 
@@ -63,8 +59,6 @@
         <div class="carousel-item">
             <img src="assets/homepage.jpg" class="d-block w-100" alt="Cliff Above a Stormy Sea"/>
             <div class="carousel-caption d-none d-md-block">
-                <h5>Third slide label</h5>
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
             </div>
         </div>
     </div>
@@ -79,6 +73,16 @@
         <i class="fas fa-forward"></i>
         <span class="visually-hidden">Next</span>
     </button>
+</div>
+<div class="coso" ; style="margin-bottom: 20px">
+    <div>
+        QUY TRÌNH KHÁM
+    </div>
+    <div>
+        Trang thiết bị hiện đại nhất trên Thế Giới
+
+    </div>
+
 </div>
 <!-- Carousel wrapper -->
 <div class="Main">
