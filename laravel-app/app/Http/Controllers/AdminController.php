@@ -57,6 +57,10 @@ class AdminController extends Controller
             ]
         );
     }
+    public function message() {
+        $title ='Tư vấn bệnh nhân ';
+        return view('admin.message', compact('title'));
+    }
 
 
 }

@@ -34,6 +34,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/addUser', [AdminController::class, 'addUser'])->name('addUser');
     Route::post('/addUser', [AdminController::class, 'setAddUser']);
 
+    Route::get('message', [AdminController::class, 'message'])->name('admin.message');
+
 
 });
 

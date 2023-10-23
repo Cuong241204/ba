@@ -1,5 +1,5 @@
 
-@extends('user.layout.sidebar')
+@extends('admin.layout.sidebar')
 @section('container')
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <div style="position: absolute; left: 120px; top: 70px;">

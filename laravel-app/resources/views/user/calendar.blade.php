@@ -1,6 +1,6 @@
 @extends('user.layout.sidebar')
 @section('container')
-    <div style="position: absolute; left: 470px; top: 70px;">
+    <div style="position: absolute; left: 350px; top: 70px;">
         <div id='calendar' style="width: 1200px;"></div>
     </div>
     <script>
