@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{ asset('css/mb/css/mdb.dark.min.css')}}">
     <link rel="stylesheet" href="{{ asset('css/mb/css/mdb.min.css')}}">
     <link rel="stylesheet" href="{{ asset('css/common.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/message.css')}}">
 
 </head>
 <body>

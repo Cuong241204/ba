@@ -178,10 +178,10 @@
                                         data-accordion="false">
 
                                         <li class="nav-item">
-                                            <a href="{{route('managerUsers')}}"
+                                            <a href="{{route('infor')}}"
                                                class="nav-link
-                                           {{(request()->is("admin/home")) ? 'active' : ''}}
-                                           {{(request()->is("admin/addUser")) ? 'active' : ''}}
+                                           {{(request()->is("user/infor")) ? 'active' : ''}}
+
                                            ">
                                                 <i class="nav-icon  fas fa-users"></i>
                                                 <p>
@@ -200,16 +200,16 @@
                                         </li>
                                         <li class="nav-item">
                                             <a href="widgets.html" class="nav-link  {{(request()->is("admin/calendar")) ? 'active' : ''}}">
-                                                <i class="nav-icon fas fa-th"></i>
+                                                <i class="nav-icon fas fa-list"></i>
                                                 <p>
                                                     Danh sách bác sĩ
                                                 </p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="widgets.html"
-                                               class="nav-link  {{(request()->is("admin/calendar")) ? 'active' : ''}}">
-                                                <i class="nav-icon fas fa-th"></i>
+                                            <a href="{{route('message')}}"
+                                               class="nav-link  {{(request()->is("user/message")) ? 'active' : ''}}">
+                                                <i class="nav-icon fas fa-comment-dots"></i>
                                                 <p>
                                                     Tư vấn bác sĩ
                                                 </p>

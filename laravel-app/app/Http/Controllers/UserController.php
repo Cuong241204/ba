@@ -99,7 +99,6 @@ class UserController extends Controller
 
         }
 
-
     }
 
     public function calendar() {
@@ -113,7 +112,8 @@ class UserController extends Controller
     }
 
     public function message() {
-        return view('user/message');
+        $title = 'Tư vấn bác sĩ';
+        return view('user/message', compact('title'));
     }
 
     public function consultative() {

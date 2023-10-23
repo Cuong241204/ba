@@ -207,8 +207,8 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="widgets.html"
-                                           class="nav-link  {{(request()->is("admin/calendar")) ? 'active' : ''}}">
+                                        <a href="{{route('admin.message')}}"
+                                           class="nav-link  {{(request()->is("admin/message")) ? 'active' : ''}}">
                                             <i class="nav-icon fas fa-th"></i>
                                             <p>
                                                 Tư vấn bệnh nhân
