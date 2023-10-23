@@ -200,7 +200,7 @@
                                     </li>
                                     <li class="nav-item">
                                         <a href="widgets.html" class="nav-link  {{(request()->is("admin/calendar")) ? 'active' : ''}}">
-                                            <i class="nav-icon fas fa-th"></i>
+                                            <i class="nav-icon fas fa-list"></i>
                                             <p>
                                                 Danh sách bác sĩ
                                             </p>
@@ -209,7 +209,7 @@
                                     <li class="nav-item">
                                         <a href="{{route('admin.message')}}"
                                            class="nav-link  {{(request()->is("admin/message")) ? 'active' : ''}}">
-                                            <i class="nav-icon fas fa-th"></i>
+                                            <i class="nav-icon fas fa-comment-dots"></i>
                                             <p>
                                                 Tư vấn bệnh nhân
                                             </p>
