@@ -1,7 +1,12 @@
 @extends('layouts.head')
-<!-- Section: Design Block -->
+@section('content')
 <section class="background-radial-gradient overflow-hidden " style="height: 100vh">
     <style>
+        #show-pass {
+            position: absolute;
+            right: 25px;
+            top: 11px;
+        }
         .background-radial-gradient {
             background-color: hsl(218, 41%, 15%);
             background-image: radial-gradient(650px circle at 0% 0%,
@@ -72,7 +77,7 @@
                             <span style="color: red; font-style: italic; font-size: 15px" >{{$message}}</span>
                             @enderror
                             <div class="form-outline mb-4">
-                                <input type="text" id="form3Example3" class="form-control" name="email"/>
+                                <input type="text" class="form-control" name="email"/>
                                 <label class="form-label" for="form3Example3">Địa chỉ Email</label>
                             </div>
                             <!-- Password input -->
@@ -80,8 +85,9 @@
                             <span style="color: red; font-style: italic ;font-size: 15px">{{$message}}</span>
                             @enderror
                             <div class="form-outline mb-4">
-                                <input type="password" id="form3Example4" class="form-control" name="password"/>
-                                <label class="form-label" for="form3Example4">Mật khẩu</label>
+                                <i id="show-pass" class="fas fa-eye"></i>
+                                <input type="password" id="id_password" name="password" class="form-control password" />
+                                <label class="form-label" for="id_password">Mật khẩu</label>
                             </div>
 
                             <!-- Submit button -->
@@ -96,8 +102,5 @@
         </div>
     </div>
 </section>
-<!-- Section: Design Block -->
-@extends('layouts.footer')
-<style>
-
-</style>
+<script src="{{asset('js/register.js')}}"></script>
+@endsection

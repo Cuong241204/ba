@@ -1,5 +1,5 @@
 @extends('layouts.head')
-<!-- Section: Design Block -->
+@section('content')
 <section class="background-radial-gradient overflow-hidden" style="height: 100vh">
     <style>
         .background-radial-gradient {
@@ -41,6 +41,11 @@
             background-color: hsla(0, 0%, 100%, 0.9) !important;
             backdrop-filter: saturate(200%) blur(25px);
         }
+        #show-pass {
+            position: absolute;
+            right: 25px;
+            top: 11px;
+        }
     </style>
 
     <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
@@ -75,7 +80,7 @@
                                     <span style="color: red; font-style: italic; font-size: 15px" >{{$message}}</span>
                                     @enderror
                                     <div class="form-outline">
-                                        <input type="text" id="form3Example1" class="form-control" name="firstName" />
+                                        <input type="text" class="form-control" name="firstName" />
                                         <label class="form-label" for="form3Example1">Họ và tên đệm</label>
                                     </div>
                                 </div>
@@ -84,7 +89,7 @@
                                     <span style="color: red; font-style: italic; font-size: 15px" >{{$message}}</span>
                                     @enderror
                                     <div class="form-outline">
-                                        <input type="text" id="form3Example2" name="userName" class="form-control" />
+                                        <input type="text" name="userName" class="form-control" />
                                         <label class="form-label" for="form3Example2">Tên</label>
                                     </div>
                                 </div>
@@ -95,7 +100,7 @@
                             <span style="color: red; font-style: italic; font-size: 15px" >{{$message}}</span>
                             @enderror
                             <div class="form-outline mb-4">
-                                <input type="email" id="form3Example3" name="tel" class="form-control" />
+                                <input type="text"  name="tel" class="form-control" />
                                 <label class="form-label" for="form3Example3">Số điện thoại</label>
                             </div>
                             @error('address')
@@ -103,7 +108,7 @@
                             @enderror
                             <!-- Email input -->
                             <div class="form-outline mb-4">
-                                <input type="email" id="form3Example3" name="address" class="form-control" />
+                                <input type="text"  name="address" class="form-control" />
                                 <label class="form-label" for="form3Example3">Địa chỉ</label>
                             </div>
                             @error('email')
@@ -111,7 +116,7 @@
                             @enderror
                             <!-- Email input -->
                             <div class="form-outline mb-4">
-                                <input type="text" id="form3Example3" name="email" class="form-control" />
+                                <input type="text"  name="email" class="form-control" />
                                 <label class="form-label" for="form3Example3">Địa chỉ Email</label>
                             </div>
 
@@ -120,16 +125,15 @@
                             <span style="color: red; font-style: italic; font-size: 15px" >{{$message}}</span>
                             @enderror
                             <div class="form-outline mb-4">
-                                <i class="show-pass fas fa-eye"></i>
-                                <i class="show-pass far fa-eye-slash"></i>
-                                <input type="password" id="form3Example4" name="password" class="form-control password" />
+                                <i id="show-pass" class="fas fa-eye"></i>
+                                <input type="password" id="id_password" name="password" class="form-control password" />
                                 <label class="form-label" for="form3Example4">Mật khẩu</label>
                             </div>
                             @error('repeat-password')
                             <span style="color: red; font-style: italic; font-size: 15px" >{{$message}}</span>
                             @enderror
                             <div class="form-outline mb-4">
-                                <input type="password" id="form3Example4" name="repeatPassword" class="form-control" />
+                                <input type="password" name="repeatPassword" class="form-control" />
                                 <label class="form-label" for="form3Example4">Nhập lại mật khẩu</label>
                             </div>
 
@@ -145,21 +149,7 @@
         </div>
     </div>
 </section>
+<script src="{{asset('js/register.js')}}"></script>
 <!-- Section: Design Block -->
-@extends('layouts.footer')
-<style type="text/css">
-    .show-pass {
-        position: absolute;
-        right: 45px;
-        top: 13px;
-    }
-
-</style>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('.show-pass').click(function () {
-            var value = $('.password').val();
-            console.log(value);
-        });
-    });
-</script>
+@endsection
+{{--@extends('layouts.footer')--}}

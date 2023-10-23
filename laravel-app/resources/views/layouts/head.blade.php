@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
-<title>{{$title}}</title>
+
 <head>
+    <title >{{$title}}</title>
+    <link rel = "icon" href =
+        "https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200X200.png"
+          type = "image/x-icon">
+
 
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
@@ -13,6 +18,10 @@
     <link rel="stylesheet" href="{{ asset('css/mb/css/mdb.dark.min.css')}}">
     <link rel="stylesheet" href="{{ asset('css/mb/css/mdb.min.css')}}">
     <link rel="stylesheet" href="{{ asset('css/common.css')}}">
+
 </head>
 <body>
+@yield('content')
+</body>
+@extends('layouts.footer')
 

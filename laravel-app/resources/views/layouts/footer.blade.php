@@ -1,4 +1,4 @@
-</body>
+
 <script type="text/javascript" src="{{ asset('js/js.bootstrap.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/adminlte.min.js') }}"></script>
