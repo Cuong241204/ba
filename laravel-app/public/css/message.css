@@ -1,7 +1,12 @@
 .contacts li > .info-combo > h3.name{
     font-size:12px;
 }
-
+.panel-search-form {
+    border-right: 1px solid;
+}
+.panel-search-form > input {
+    height: 54px;
+}
 .contacts li .message-time {
     text-align: right;
     display: block;
@@ -64,6 +69,7 @@
     display: inline-block;
     border-top-left-radius: 5px;
     margin-bottom: 0;
+    border: 1px solid #dadada;
 }
 
 .messages-panel img.img-circle {
@@ -78,6 +84,7 @@
 .contacts-list {
     background-color: #fff;
     border-right: 1px solid #cfdbe2;
+    border-left: 1px solid #dadada;
     width: 305px;
     height: 100%;
     border-top-left-radius: 5px;
@@ -164,16 +171,6 @@
     overflow: hidden;
 }
 
-.contacts-outter-wrapper:after, .contacts-outter-wrapper:nth-child(1):after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 5px;
-    bottom: 0;
-    background-color: #2da9e9;
-    border-bottom-left-radius: 4px;
-}
-
 .contacts-outter-wrapper:nth-child(2):after {
     background-color: #0ec8a2;
 }
@@ -188,7 +185,7 @@
 
 .contacts-outter {
     position: relative;
-    height: calc(100vh - 278px);
+    height: 500px;
     width: 325px;
     direction: rtl;
     overflow-y: scroll;
@@ -346,6 +343,7 @@
     height: 100%;
     width: calc(100% - 305px);
     float: right;
+    padding-right: 10px;
 }
 
 .message-body .message-top {

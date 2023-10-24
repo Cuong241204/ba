@@ -6,17 +6,11 @@
         <div style="width: 1200px" class="container">
             <div class="panel messages-panel">
                 <div class="contacts-list">
-                    <div class="inbox-categories">
-                        <div data-toggle="tab" data-target="#inbox" class="active"> Inbox </div>
-                        <div data-toggle="tab" data-target="#sent"> Sent </div>
-                        <div data-toggle="tab" data-target="#marked"> Marked </div>
-                        <div data-toggle="tab" data-target="#drafts"> Drafts </div>
-                    </div>
                     <div class="tab-content">
                         <div id="inbox" class="contacts-outter-wrapper tab-pane active">
                             <form class="panel-search-form info form-group has-feedback no-margin-bottom">
                                 <input type="text" class="form-control" name="search" placeholder="Search">
-                                <span class="fa fa-search form-control-feedback"></span>
+
                             </form>
                             <div class="contacts-outter">
                                 <ul class="list-unstyled contacts">
@@ -77,7 +71,6 @@
                         <div id="sent" class="contacts-outter-wrapper tab-pane">
                             <form class="panel-search-form success form-group has-feedback no-margin-bottom">
                                 <input type="text" class="form-control" name="search" placeholder="Search">
-                                <span class="fa fa-search form-control-feedback"></span>
                             </form>
                             <div class="contacts-outter">
                                 <ul class="list-unstyled contacts success">
@@ -112,7 +105,6 @@
                         <div id="marked" class="contacts-outter-wrapper tab-pane">
                             <form class="panel-search-form warning form-group has-feedback no-margin-bottom">
                                 <input type="text" class="form-control" name="search" placeholder="Search">
-                                <span class="fa fa-search form-control-feedback"></span>
                             </form>
                             <div class="contacts-outter">
                                 <ul class="list-unstyled contacts warning">
@@ -148,7 +140,6 @@
                         <div id="drafts" class="contacts-outter-wrapper tab-pane">
                             <form class="panel-search-form dark form-group has-feedback no-margin-bottom">
                                 <input type="text" class="form-control" name="search" placeholder="Search">
-                                <span class="fa fa-search form-control-feedback"></span>
                             </form>
                             <div class="contacts-outter">
                                 <ul class="list-unstyled contacts dark">

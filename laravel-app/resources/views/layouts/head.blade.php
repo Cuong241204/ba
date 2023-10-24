@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="{{ asset('css/mb/css/mdb.min.css')}}">
     <link rel="stylesheet" href="{{ asset('css/common.css')}}">
     <link rel="stylesheet" href="{{ asset('css/message.css')}}">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
 
 </head>
 <body>
