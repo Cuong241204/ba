@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -38,16 +39,17 @@ class UserController extends Controller
 
         ]);
         $users = DB::table('users')->get();
-
         $email = $request->email;
         $password = $request->password;
-
-        //dd($validator);die;
         if ($validator == true) {
            foreach ($users as $user) {
                if ($email == $user->email) {
                    if ($password == $user->password) {
-                       return  redirect('admin/home');
+                      if ($user->is_admin == 1) {
+                          return redirect('admin/home')->with('message', 'Đăng nhập thành công');
+                      } else {
+                          return redirect('user/calendar')->with('message', 'Đăng nhập thành công');
+                      }
                    }
                }
            }
@@ -91,10 +93,25 @@ class UserController extends Controller
         $password = $request->password;
         $repeatPassword = $request->repeatPassword;
 
+        $data = [
+            'name' => $firstName.' '.$userName,
+            'email' => $email,
+            'password' => $password,
+            'tel' => $tel,
+            'address' => $address,
+            'is_admin' => '1',
+            'email_verified_at' => Carbon::today(),
+            'sex' => '1',
+            'birth' =>  Carbon::today(),
+            'birth_medic' =>  Carbon::today(),
+            'id-card' => '',
+            'work' => '',
+        ];
+
         if ($validator) {
             if ($password == $repeatPassword) {
-
-                $user = User::create(request(['name', 'email', 'password']));
+                User::create($data);
+                return redirect('/login')->with('message', 'Đăng ký thành công, vui lòng đăng nhập');
             }
 
         }

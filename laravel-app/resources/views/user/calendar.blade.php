@@ -16,9 +16,13 @@
             display: none;
         }
     </style>
-    <div class="popup">
-
-    </div>
+    @if (\Session::has('message'))
+        <div class="alert alert-success">
+            <ul>
+                <li>{!! \Session::get('message') !!}</li>
+            </ul>
+        </div>
+    @endif
     <div style="position: absolute; left: 350px; top: 70px;">
         <div id='calendar' style="width: 1200px;"></div>
     </div>

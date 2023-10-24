@@ -38,6 +38,13 @@
 
     </style>
 
+    @if (\Session::has('message'))
+        <div class="alert alert-success">
+            <ul>
+                <li>{!! \Session::get('message') !!}</li>
+            </ul>
+        </div>
+    @endif
     <div style="position: absolute; right: -110px; top: 70px;">
         <div class="">
             <div class="add-medic"
