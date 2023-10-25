@@ -39,10 +39,31 @@
     </style>
 
     @if (\Session::has('message'))
-        <div class="alert alert-success">
-            <ul>
-                <li>{!! \Session::get('message') !!}</li>
-            </ul>
+        <div class="alert alert-success"
+             style="position: absolute;
+             top: 50px ; z-index: 10000;
+             width: 500px;
+             margin-left: auto;
+             margin-right: auto;
+             left: 0;
+             right: 0;
+             text-align: center;
+        ">
+            {!! \Session::get('message') !!}
+        </div>
+    @endif
+    @if (\Session::has('add-message'))
+        <div class="alert alert-success"
+             style="position: absolute;
+             top: 50px ; z-index: 10000;
+             width: 500px;
+             margin-left: auto;
+             margin-right: auto;
+             left: 0;
+             right: 0;
+             text-align: center;
+        ">
+            {!! \Session::get('add-message') !!}
         </div>
     @endif
     <div style="position: absolute; right: -110px; top: 70px;">
@@ -69,6 +90,7 @@
                     <tr>
                         <th>Họ tên bệnh nhân</th>
                         <th>Ngày khám</th>
+                        <th>Ngày ra viện</th>
                         <th>Bác sĩ</th>
                         <th>Bệnh án</th>
                         <th>Hành động</th>
@@ -76,6 +98,7 @@
                     </tr>
                     </thead>
                     <tbody>
+                    @foreach ($nonAdminUsers as $user)
                     <tr>
                         <td>
                             <div class="d-flex align-items-center">
@@ -86,34 +109,42 @@
                                     class="rounded-circle"
                                 />
                                 <div class="ms-3">
-                                    <p class="fw-bold mb-1">John Doe</p>
-                                    <p class="text-muted mb-0">john.doe@gmail.com</p>
+                                    <p class="fw-bold mb-1">{{$user->name}}</p>
+                                    <p class="text-muted mb-0">{{$user->email}}</p>
                                 </div>
                             </div>
                         </td>
                         <td>
-                            <p class="fw-normal mb-1">Software engineer</p>
-                            <p class="text-muted mb-0">IT department</p>
+                            <p class="fw-normal mb-1">{{$user->birth_medic}}</p>
                         </td>
                         <td>
                             <span class="badge badge-success rounded-pill d-inline">Active</span>
                         </td>
                         <td>Senior</td>
                         <td>
-                            <button class="btn btn-primary">
-                                <i class="fas fa-edit"></i> Sửa
-                            </button>
-                            <button class="btn btn-danger">
+                            <a href="{{route('admin.infor', ['email' => $user->email])}}" class="btn btn-success">
+                                <i class="fas fa-eye"></i> Xem infor
+                            </a>
+                            <button onclick="deleteUser({{$user->email}})" class="btn btn-danger">
                                 <i class="fas fa-user-times"></i> Xóa
                             </button>
                         </td>
-                        <td>Junior</td>
+                        <td>{{$user->note}}</td>
                     </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>
 
         </div>
     </div>
+    <script>
+        function deleteUser() {
+            let message = 'Bạn có chắc muốn xoá bệnh nhân này không ?';
+            if (confirm(message) == true) {
+                ;
+            }
+        }
+    </script>
 
 @endsection()

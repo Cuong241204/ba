@@ -1,3 +1,7 @@
 form input.active {
     color: #333333 !important;
 }
+.not-edit {
+    background: #dadada;
+    cursor: not-allowed;
+}

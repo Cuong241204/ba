@@ -41,7 +41,7 @@
             background-color: hsla(0, 0%, 100%, 0.9) !important;
             backdrop-filter: saturate(200%) blur(25px);
         }
-        #show-pass {
+        #show-pass, #show-pass1 {
             position: absolute;
             right: 25px;
             top: 11px;
@@ -133,7 +133,8 @@
                             <span style="color: red; font-style: italic; font-size: 15px" >{{$message}}</span>
                             @enderror
                             <div class="form-outline mb-4">
-                                <input type="password" name="repeatPassword" class="form-control" />
+                                <i id="show-pass1" class="fas fa-eye"></i>
+                                <input type="password" id="repeat_password" name="repeatPassword" class="form-control" />
                                 <label class="form-label" for="form3Example4">Nhập lại mật khẩu</label>
                             </div>
 

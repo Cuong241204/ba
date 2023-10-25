@@ -152,10 +152,10 @@
                         <div class="sidebar">
                             <div class="user-panel mt-3 pb-3 mb-3 ">
                                 <div class="image d-block">
-                                    <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-circle elevation-2" alt="User Image">
                                 </div>
                                 <div class="info">
-                                    <a href="#" class="d-block">Alexander Pierce</a>
+                                    <a href="#" class="d-block">Cường Đỗ</a>
                                 </div>
                             </div>
 
@@ -182,6 +182,7 @@
                                            class="nav-link
                                            {{(request()->is("admin/home")) ? 'active' : ''}}
                                            {{(request()->is("admin/addUser")) ? 'active' : ''}}
+                                           {{(request()->is("admin/inforUser/*")) ? 'active' : ''}}
                                            ">
                                             <i class="nav-icon  fas fa-users"></i>
                                             <p>

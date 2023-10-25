@@ -36,6 +36,10 @@ Route::prefix('admin')->group(function () {
 
     Route::get('message', [AdminController::class, 'message'])->name('admin.message');
 
+    Route::get('inforUser/{email}', [AdminController::class, 'inforUser'])->name('admin.infor');
+
+    Route::post('inforUser/{email}', [AdminController::class, 'updateInforUser'])->name('updateInforUser');
+
 
 });
 

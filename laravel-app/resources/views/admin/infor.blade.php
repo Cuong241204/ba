@@ -21,8 +21,7 @@
         padding: 10px">
                 <h3 style="padding-bottom: 20px">Thông tin bệnh nhân</h3>
                 <form action="#" method="POST">
-                    @csrf {{ csrf_token()}}
-
+                    @csrf
                     @if($errors -> any())
                         <div class="alert alert-danger text-center  container">
                             Vui lòng kiểm tra dữ liệu đầu vào
@@ -34,46 +33,29 @@
                             <span style="color: red; font-style: italic; font-size: 15px" >{{$message}}</span>
                             @enderror
                             <div class="form-outline">
-                                <input type="text" id="form12" class="form-control" name="username"/>
+                                <input type="text" id="form12" class="form-control" name="username" value="{{$user->name}}"/>
                                 <label class="form-label" for="form12">Tên bệnh nhân</label>
                             </div>
                             @error('address')
                             <span style="color: red; font-style: italic; font-size: 15px" >{{$message}}</span>
                             @enderror
                             <div class="form-outline">
-                                <input type="text" id="form12" class="form-control" name="address"/>
+                                <input type="text" id="form12" class="form-control" name="address" value="{{$user->address}}"/>
                                 <label class="form-label" for="form12">Địa chỉ</label>
                             </div>
                             @error('tel')
                             <span style="color: red; font-style: italic; font-size: 15px" >{{$message}}</span>
                             @enderror
                             <div class="form-outline">
-                                <input type="text" id="form12" class="form-control" name="tel" />
+                                <input type="text" id="form12" class="form-control" name="tel" value="{{$user->tel}}"/>
                                 <label class="form-label" for="form12">Số điện thoại</label>
                             </div>
                             @error('Email')
                             <span style="color: red; font-style: italic; font-size: 15px" >{{$message}}</span>
                             @enderror
                             <div class="form-outline">
-                                <input type="text" id="form12" class="form-control" name="Email" />
+                                <input type="text" id="form12" class="form-control" name="Email" value="{{$user->email}}"/>
                                 <label class="form-label" for="form12">Email</label>
-                            </div>
-                            <!-- Password input -->
-                            @error('password')
-                            <span style="color: red; font-style: italic; font-size: 15px" >{{$message}}</span>
-                            @enderror
-                            <div class="form-outline mb-4">
-                                <i id="show-pass" class="fas fa-eye"></i>
-                                <input type="password" id="id_password" name="password" class="form-control password" />
-                                <label class="form-label" for="form3Example4">Mật khẩu</label>
-                            </div>
-                            @error('repeat-password')
-                            <span style="color: red; font-style: italic; font-size: 15px" >{{$message}}</span>
-                            @enderror
-                            <div class="form-outline mb-4">
-                                <i id="show-pass1" class="fas fa-eye"></i>
-                                <input type="password" id="repeat_password" name="repeatPassword" class="form-control" />
-                                <label class="form-label" for="form3Example4">Nhập lại mật khẩu</label>
                             </div>
                             <label>
                                 Giới tính
@@ -96,28 +78,28 @@
                             <span style="color: red; font-style: italic; font-size: 15px" >{{$message}}</span>
                             @enderror
                             <div class="form-outline">
-                                <input type="text" id="form12" class="form-control" name="birth" />
+                                <input type="text" id="form12" class="form-control" name="birth" value="{{$user->birth}}"/>
                                 <label class="form-label" for="form12">Ngày sinh</label>
                             </div>
                             @error('datemedic')
                             <span style="color: red; font-style: italic; font-size: 15px" >{{$message}}</span>
                             @enderror
                             <div class="form-outline">
-                                <input type="text" id="form12" class="form-control" name="datemedic" />
+                                <input type="text" id="form12" class="form-control" name="datemedic" value="{{$user->birth_medic}}"/>
                                 <label class="form-label" for="form12">Ngày khám</label>
                             </div>
                             @error('idcard')
                             <span style="color: red; font-style: italic; font-size: 15px" >{{$message}}</span>
                             @enderror
                             <div class="form-outline">
-                                <input type="text" id="form12" class="form-control" name="idcard" />
+                                <input type="text" id="form12" class="form-control" name="idcard" value="{{$user->idcard}}"/>
                                 <label class="form-label" for="form12">Số thẻ bảo hiểm y tế</label>
                             </div>
                             @error('work')
                             <span style="color: red; font-style: italic; font-size: 15px" >{{$message}}</span>
                             @enderror
                             <div class="form-outline">
-                                <input type="text" id="form12" class="form-control" name="work" />
+                                <input type="text" id="form12" class="form-control" name="work" value="{{$user->work}}"/>
                                 <label class="form-label" for="form12">Nghề nghiêp</label>
                             </div>
                         </div>
@@ -129,18 +111,18 @@
                         @enderror
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Nội dung bệnh</label>
-                            <textarea  class="form-control" id="exampleFormControlTextarea1" rows="3" name="deseasecontent"></textarea>
+                            <textarea  class="form-control" id="exampleFormControlTextarea1" rows="3" name="deseasecontent">{{$user->deseasecontent}}</textarea>
                         </div>
                         @error('medicinecontent')
                         <span style="color: red; font-style: italic; font-size: 15px" >{{$message}}</span>
                         @enderror
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Nội dung thuốc</label>
-                            <textarea   class="form-control " id="exampleFormControlTextarea1" rows="3" name="medicinecontent"></textarea>
+                            <textarea   class="form-control " id="exampleFormControlTextarea1" rows="3" name="medicinecontent">{{$user->medicinecontent}}</textarea>
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Ghi chú</label>
-                            <textarea  class="form-control" id="exampleFormControlTextarea1" rows="3" name="note" ></textarea>
+                            <textarea  class="form-control" id="exampleFormControlTextarea1" rows="3" name="note" >{{$user->note}}</textarea>
                         </div>
                         @csrf
                         <button type="submit" class="btn btn-primary">
@@ -156,12 +138,6 @@
         .form-outline {
             margin-bottom: 30px;
         }
-        #show-pass, #show-pass1 {
-            position: absolute;
-            right: 25px;
-            top: 11px;
-        }
     </style>
-    <script src="{{asset('js/register.js')}}"></script>
 @endsection()
 

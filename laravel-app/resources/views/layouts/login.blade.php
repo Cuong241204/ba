@@ -48,13 +48,6 @@
         }
     </style>
 
-    @if (\Session::has('message'))
-        <div class="alert alert-success">
-            <ul>
-                <li>{!! \Session::get('message') !!}</li>
-            </ul>
-        </div>
-    @endif
     <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
         <div class="row gx-lg-5 align-items-center mb-5">
             <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
@@ -74,6 +67,16 @@
                 <div class="card bg-glass">
                     <div class="card-body px-4 py-5 px-md-5">
                         <form action="#" method="POST">
+                            @if (\Session::has('message'))
+                                <div class="alert alert-success text-center">
+                                    {!! \Session::get('message') !!}
+                                </div>
+                            @endif
+                                @if (\Session::has('error'))
+                                    <div class="alert alert-danger">
+                                        {!! \Session::get('error') !!}
+                                    </div>
+                                @endif
                             @csrf
                             @if($errors -> any())
                                 <div class="alert alert-danger text-center  container">

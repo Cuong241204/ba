@@ -8,6 +8,8 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Validator;
 
 class UserController extends Controller
 {
@@ -38,22 +40,27 @@ class UserController extends Controller
             'password.min' => 'Mật khẩu phải lớn hơn 8 ký tự',
 
         ]);
-        $users = DB::table('users')->get();
         $email = $request->email;
         $password = $request->password;
-        if ($validator == true) {
-           foreach ($users as $user) {
-               if ($email == $user->email) {
-                   if ($password == $user->password) {
-                      if ($user->is_admin == 1) {
-                          return redirect('admin/home')->with('message', 'Đăng nhập thành công');
-                      } else {
-                          return redirect('user/calendar')->with('message', 'Đăng nhập thành công');
-                      }
-                   }
-               }
-           }
+
+//        if ($validator->fails()) {
+//            return redirect()->back()->withErrors($validator)->withInput();
+//        }
+
+
+        $user = User::where('email', $email)->first();
+
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            if ($user->is_admin == 1) {
+                return redirect('admin/home')->with('message', 'Đăng nhập thành công');
+            } else {
+                return redirect('user/infor')->with('message', 'Đăng nhập thành công');
+            }
         }
+
+        return redirect()->back()->with('error', 'Email hoặc mật khẩu không đúng');
 
 
 
@@ -83,49 +90,59 @@ class UserController extends Controller
             'password.min' => 'Mật khẩu phải lớn hơn 8 ký tự',
             'repeatPassword.required' => 'Nhập lại mật khẩu không được bỏ trống',
             'repeatPassword.min' => 'Nhập lại mật khẩu phải lớn hơn 8 ký tự',
-
         ]);
-        $firstName = $request->firstName;
-        $userName = $request->userName;
-        $tel = $request->tel;
-        $address = $request->address;
-        $email = $request->email;
-        $password = $request->password;
-        $repeatPassword = $request->repeatPassword;
-
-        $data = [
-            'name' => $firstName.' '.$userName,
-            'email' => $email,
-            'password' => $password,
-            'tel' => $tel,
-            'address' => $address,
-            'is_admin' => '1',
-            'email_verified_at' => Carbon::today(),
-            'sex' => '1',
-            'birth' =>  Carbon::today(),
-            'birth_medic' =>  Carbon::today(),
-            'id-card' => '',
-            'work' => '',
-        ];
 
         if ($validator) {
+            $firstName = $request->firstName;
+            $userName = $request->userName;
+            $tel = $request->tel;
+            $address = $request->address;
+            $email = $request->email;
+            $password = $request->password;
+            $repeatPassword = $request->repeatPassword;
+
             if ($password == $repeatPassword) {
+                // Check if the email address already exists
+                $existingUser = User::where('email', $email)->first();
+
+                if ($existingUser) {
+                    return redirect()->back()->withInput()->with('error', 'Email đã tồn tại, vui lòng sử dụng một email khác.');
+                }
+
+                // Hash the password securely
+                $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+
+                $data = [
+                    'name' => $firstName . ' ' . $userName,
+                    'email' => $email,
+                    'password' => $hashedPassword,
+                    'tel' => $tel,
+                    'address' => $address,
+                    'is_admin' => '1',
+                    'email_verified_at' => Carbon::now(),
+                    'sex' => '1',
+                ];
+
                 User::create($data);
+
                 return redirect('/login')->with('message', 'Đăng ký thành công, vui lòng đăng nhập');
             }
-
         }
 
+        return redirect()->back()->withInput()->withErrors($validator);
     }
 
+
     public function calendar() {
+        $user = Auth::user();
         $title ='Đặt lịch khám';
-        return view('user/calendar', compact('title'));
+        return view('user/calendar', compact('title', 'user'));
     }
 
     public function inforCaseRecord() {
+        $user = Auth::user();
         $title ='Xem hồ sơ bệnh án ';
-        return view('user/infor', compact('title'));
+        return view('user/infor', compact('title', 'user'));
     }
 
     public function message() {

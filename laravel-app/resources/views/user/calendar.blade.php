@@ -17,15 +17,23 @@
         }
     </style>
     @if (\Session::has('message'))
-        <div class="alert alert-success">
-            <ul>
-                <li>{!! \Session::get('message') !!}</li>
-            </ul>
+        <div class="alert alert-success"
+             style="position: absolute;
+             top: 50px ; z-index: 10000;
+             width: 500px;
+             margin-left: auto;
+             margin-right: auto;
+             left: 0;
+             right: 0;
+             text-align: center;
+        ">
+            {!! \Session::get('message') !!}
         </div>
     @endif
     <div style="position: absolute; left: 350px; top: 70px;">
         <div id='calendar' style="width: 1200px;"></div>
     </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var calendarEl = document.getElementById('calendar');
