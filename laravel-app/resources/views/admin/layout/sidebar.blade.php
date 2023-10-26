@@ -200,14 +200,6 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="widgets.html" class="nav-link  {{(request()->is("admin/calendar")) ? 'active' : ''}}">
-                                            <i class="nav-icon fas fa-list"></i>
-                                            <p>
-                                                Danh sách bác sĩ
-                                            </p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
                                         <a href="{{route('admin.message')}}"
                                            class="nav-link  {{(request()->is("admin/message")) ? 'active' : ''}}">
                                             <i class="nav-icon fas fa-comment-dots"></i>
@@ -233,7 +225,7 @@
         }
 
         body:not(.layout-fixed) .main-sidebar {
-            height: 110vh;
+            height: 200vh;
         }
     </style>
 </div>

@@ -1,5 +1,19 @@
-@extends('user.layout.sidebar')
+ @extends('user.layout.sidebar')
 @section('container')
+    @if (\Session::has('message'))
+        <div class="alert alert-success"
+             style="position: absolute;
+             top: 50px ; z-index: 10000;
+             width: 500px;
+             margin-left: auto;
+             margin-right: auto;
+             left: 0;
+             right: 0;
+             text-align: center;
+        ">
+            {!! \Session::get('message') !!}
+        </div>
+    @endif
     <div style="position: absolute; left: 265px; top: 70px;">
         <div class="col-10">
             <div class="add-user" style="width: 1300px; margin: 30px auto 0px;

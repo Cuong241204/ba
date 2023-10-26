@@ -21,7 +21,7 @@
         padding: 10px">
                 <h3 style="padding-bottom: 20px">Thông tin bệnh nhân</h3>
                 <form action="#" method="POST">
-                    @csrf {{ csrf_token()}}
+                    @csrf
 
                     @if($errors -> any())
                         <div class="alert alert-danger text-center  container">

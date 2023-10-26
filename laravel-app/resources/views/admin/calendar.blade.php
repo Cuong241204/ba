@@ -1,6 +1,6 @@
 @extends('admin.layout.sidebar')
 @section('container')
-    <div style="position: absolute; right: -474px; top: 70px;">
+    <div style="position: absolute; right: -370px; top: 70px;">
         <div id='calendar' style="width: 1200px;"></div>
     </div>
     <script>

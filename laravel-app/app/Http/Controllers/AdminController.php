@@ -75,6 +75,7 @@ class AdminController extends Controller
             'deseasecontent' => $request->medicinecontent,
             'medicinecontent' =>  $request->medicinecontent,
             'password' => $hashedPassword,
+            'address' => $request->address,
         ];
 
         User::create($data);
@@ -144,5 +145,16 @@ class AdminController extends Controller
         return redirect()->back()->with('message-success', 'Thông tin cập nhật thành công');
     }
 
+    public function deleteUser(Request $request) {
 
+        $email = $request->email;
+        $user = User::where('email', $email)->first();
+
+        if ($user) {
+            $user->delete();
+            return response()->json(['message' => 'Xóa bệnh nhân thành công']);
+        } else {
+            return response()->json(['message' => 'Không tìm thấy bệnh nhân']);
+        }
+    }
 }

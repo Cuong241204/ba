@@ -90,7 +90,6 @@
                     <tr>
                         <th>Họ tên bệnh nhân</th>
                         <th>Ngày khám</th>
-                        <th>Ngày ra viện</th>
                         <th>Bác sĩ</th>
                         <th>Bệnh án</th>
                         <th>Hành động</th>
@@ -118,14 +117,14 @@
                             <p class="fw-normal mb-1">{{$user->birth_medic}}</p>
                         </td>
                         <td>
-                            <span class="badge badge-success rounded-pill d-inline">Active</span>
+                            <span class="badge badge-success rounded-pill d-inline">Đỗ Cường</span>
                         </td>
-                        <td>Senior</td>
+                        <td>Đã tạo</td>
                         <td>
                             <a href="{{route('admin.infor', ['email' => $user->email])}}" class="btn btn-success">
                                 <i class="fas fa-eye"></i> Xem infor
                             </a>
-                            <button onclick="deleteUser({{$user->email}})" class="btn btn-danger">
+                            <button onclick="deleteUser('{{$user->email}}')" class="btn btn-danger">
                                 <i class="fas fa-user-times"></i> Xóa
                             </button>
                         </td>
@@ -139,10 +138,26 @@
         </div>
     </div>
     <script>
-        function deleteUser() {
-            let message = 'Bạn có chắc muốn xoá bệnh nhân này không ?';
-            if (confirm(message) == true) {
-                ;
+        function deleteUser(email) {
+
+            if (confirm("Bạn có chắc chắn muốn xóa ?")) {
+
+                $.ajax({
+                    type: "DELETE",  // You can use "DELETE" if you prefer.
+                    url: "/api/delete-user/",  // Replace with the actual URL to delete the user.
+                    data: { email: email },
+                    success: function (response) {
+                        // Handle the success response, e.g., remove the user from the UI.
+                        if (response.success) {
+                            alert("Xóa bệnh nhân thành công ");
+
+                        }
+                    },
+                    error: function (error) {
+
+                        alert("có lỗi xảy ra!");
+                    }
+                });
             }
         }
     </script>

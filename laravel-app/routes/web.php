@@ -48,6 +48,7 @@ Route::prefix('user')->group(function () {
     Route::get('/calendar', [UserController::class, 'calendar'])->name('calendar');
     Route::get('/infor', [UserController::class, 'inforCaseRecord'])->name('infor');
     Route::get('/message', [UserController::class, 'message'])->name('message');
+    Route::post('/message', [UserController::class, 'broadcast'])->name('message');
 
 });
 
