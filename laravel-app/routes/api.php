@@ -22,3 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('users', [UserController::class, 'getUser']);
 
 Route::delete('/delete-user', [AdminController::class, 'deleteUser']);
+
+Route::post('register-appointment', [UserController::class, 'registerAppointment']);
+Route::get('get-appointments/{email}', [UserController::class, 'getAppointment']);

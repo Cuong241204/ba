@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Events\PusherBroadcast;
+use App\Models\FullCalendar;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -27,6 +28,27 @@ class UserController extends Controller
         $user = User::where('email', $email)->first();
         $title ='Đặt lịch khám';
         return view('user/calendar', compact('title', 'user'));
+    }
+
+    public function registerAppointment(Request $request) {
+
+        $email = $request->patient_email;
+        $content = $request->appointment_content;
+        $date = $request->appointment_date;
+
+        $data = [
+            'email' => $email,
+            'content_calendar' => $date,
+            'date_pick_ticket' => $content
+        ];
+
+        FullCalendar::create($data);
+
+        return response()->json(['message' => 'Đã đăng ký lịch khám thành công.'], 201);
+
+    }
+    public function getAppointment($email) {
+        return ($email);
     }
 
     public function inforCaseRecord() {

@@ -6,6 +6,9 @@
       <sourceFolder url="file://$MODULE_DIR$/laravel-app/database/factories" isTestSource="false" packagePrefix="Database\Factories\" />
       <sourceFolder url="file://$MODULE_DIR$/laravel-app/database/seeders" isTestSource="false" packagePrefix="Database\Seeders\" />
       <sourceFolder url="file://$MODULE_DIR$/laravel-app/tests" isTestSource="true" packagePrefix="Tests\" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel-app/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-app/vendor/beste/clock" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-app/vendor/beste/json" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-app/vendor/brick/math" />
@@ -136,6 +139,9 @@
       <excludeFolder url="file://$MODULE_DIR$/laravel-app/vendor/voku/portable-ascii" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-app/vendor/webmozart/assert" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-app/vendor/symfony/polyfill-php83" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel-app/vendor/paragonie/random_compat" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel-app/vendor/paragonie/sodium_compat" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel-app/vendor/pusher/pusher-php-server" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

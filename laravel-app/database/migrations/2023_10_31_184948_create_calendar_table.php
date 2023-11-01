@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('calendar', function (Blueprint $table) {
             $table->id();
+            $table->string('email');
             $table->string('content_calendar');
             $table->date('date_pick_ticket');
-            $table->string('status');
+            $table->string('status')->default('1');
             $table->timestamps();
 
         });
