@@ -50,15 +50,16 @@
                 events: function (fetchInfo, successCallback, failureCallback) {
                     var email = document.getElementById('email').value;
                     // Sử dụng fetch hoặc axios để gọi API
-                    fetch('/api/get-appointments/${email}')
+                    fetch('/api/get-appointments/'+email, {method: 'get'})
                         .then(response => response.json())
                         .then(data => {
+                            console.log(data);
                             // Xử lý dữ liệu từ API và trả về cho FullCalendar
-                            var events = data.appointments.map(appointment => {
+                            var events = data.calendar.map(appointment => {
                                 return {
                                     id: appointment.id,
-                                    title: appointment.title,
-                                    start: appointment.start
+                                    title: appointment.content_calendar,
+                                    start: appointment.date_pick_ticket
                                 };
                             });
 
