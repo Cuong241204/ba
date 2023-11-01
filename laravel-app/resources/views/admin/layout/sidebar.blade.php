@@ -156,6 +156,20 @@
                                 </div>
                                 <div class="info">
                                     <a href="#" class="d-block">Cường Đỗ</a>
+                                    <div class="side" style="color:white">
+                                        <div >
+                                            <i class="far fa-eye"></i>
+                                            Xem thông tin
+                                        </div>
+                                        <div>
+                                            <i class="fas fa-lock"></i>
+                                            Đổi mật khẩu
+                                        </div>
+                                        <div>
+                                            <i class="fas fa-sign-out-alt"></i>
+                                            Đăng xuất
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -226,6 +240,10 @@
 
         body:not(.layout-fixed) .main-sidebar {
             height: 200vh;
+        }
+        .side div:hover {
+            color:#8babe0;
+
         }
     </style>
 </div>

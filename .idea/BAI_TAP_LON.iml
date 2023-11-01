@@ -8,13 +8,14 @@
       <sourceFolder url="file://$MODULE_DIR$/laravel-app/tests" isTestSource="true" packagePrefix="Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/laravel-app/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel-app/tests/Feature" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel-app/tests/Unit" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-app/vendor/beste/clock" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-app/vendor/beste/json" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-app/vendor/brick/math" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-app/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-app/vendor/dflydev/dot-access-data" />
-      <excludeFolder url="file://$MODULE_DIR$/laravel-app/vendor/doctrine/deprecations" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-app/vendor/doctrine/inflector" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-app/vendor/doctrine/instantiator" />
       <excludeFolder url="file://$MODULE_DIR$/laravel-app/vendor/doctrine/lexer" />
