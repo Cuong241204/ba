@@ -69,8 +69,8 @@ class AdminController extends Controller
             'email' => $request->Email,
             'tel' => $request->tel,
             'birth' => $request->birth,
-            'birth_medic' => $request->datemedic,
-            'idcard' => $request->idcard,
+            'date_medic' => $request->datemedic,
+            'id_card' => $request->idcard,
             'work' => $request->work,
             'note' => $request->note,
             'deseasecontent' => $request->medicinecontent,
@@ -132,12 +132,13 @@ class AdminController extends Controller
             'email' => $request->email,
             'tel' => $request->tel,
             'birth' => $request->birth,
-            'birth_medic' => $request->datemedic,
-            'idcard' => $request->idcard,
+            'date_medic' => $request->datemedic,
+            'id_card' => $request->idcard,
             'work' => $request->work,
             'note' => $request->note,
             'deseasecontent' => $request->medicinecontent,
             'medicinecontent' =>  $request->medicinecontent,
+
         ];
 
         User::where('email', $email)->update($dataUpdate);
