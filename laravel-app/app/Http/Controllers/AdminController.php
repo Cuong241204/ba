@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FullCalendar;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -156,5 +157,9 @@ class AdminController extends Controller
         } else {
             return response()->json(['message' => 'Không tìm thấy bệnh nhân']);
         }
+    }
+    public function getAllAppointment() {
+        $res =  FullCalendar::get();
+        return response()->json(['calendar' => $res]);
     }
 }

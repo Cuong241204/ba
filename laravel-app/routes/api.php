@@ -25,3 +25,5 @@ Route::delete('/delete-user', [AdminController::class, 'deleteUser']);
 
 Route::post('register-appointment', [UserController::class, 'registerAppointment']);
 Route::get('get-appointments/{email}', [UserController::class, 'getAppointment']);
+Route::delete('delete-appointment', [UserController::class, 'deleteAppointment']);
+Route::get('/getall-appointments/', [AdminController::class, 'getAllAppointment']);
