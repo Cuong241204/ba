@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthencationController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,11 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/login', [UserController::class, 'login'])->name('login');
-Route::post('/login', [UserController::class, 'setLogin']);
+Route::get('/login', [AuthencationController::class, 'login'])->name('login');
+Route::post('/login', [AuthencationController::class, 'setLogin']);
 
-Route::get('/register', [UserController::class, 'register'])->name('register');
-Route::post('/register', [UserController::class, 'setRegister']);
+Route::get('/register', [AuthencationController::class, 'register'])->name('register');
+Route::post('/register', [AuthencationController::class, 'setRegister']);
 
 Route::get('/', [UserController::class, 'welcome'])->name('welcome');
 
@@ -45,10 +46,10 @@ Route::prefix('admin')->group(function () {
 
 Route::prefix('user')->group(function () {
 
-    Route::get('/calendar', [UserController::class, 'calendar'])->name('calendar');
-    Route::get('/infor', [UserController::class, 'inforCaseRecord'])->name('infor');
-    Route::get('/message', [UserController::class, 'message'])->name('message');
-    Route::post('/message', [UserController::class, 'broadcast'])->name('message');
+    Route::get('/calendar/{email}', [UserController::class, 'calendar'])->name('calendar');
+    Route::get('/infor/{email}', [UserController::class, 'inforCaseRecord'])->name('infor');
+    Route::get('/message/{email}', [UserController::class, 'message'])->name('message');
+    Route::post('/message/', [UserController::class, 'broadcast'])->name('message');
 
 });
 

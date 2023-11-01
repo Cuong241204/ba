@@ -13,11 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('flights', function (Blueprint $table) {
+        Schema::create('calendar', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('airline');
+            $table->string('content_calendar');
+            $table->date('date_pick_ticket');
+            $table->string('status');
             $table->timestamps();
+
         });
     }
 
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('flights');
+        Schema::dropIfExists('calendar');
     }
 };

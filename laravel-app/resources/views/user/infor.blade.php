@@ -1,4 +1,4 @@
- @extends('user.layout.sidebar')
+@extends('user.layout.sidebar')
 @section('container')
     @if (\Session::has('message'))
         <div class="alert alert-success"
@@ -14,6 +14,9 @@
             {!! \Session::get('message') !!}
         </div>
     @endif
+    @section('userData')
+        <div class="user-data">{{($user->name) ? $user->name : 'Xin chào' }}</div>
+    @endsection
     <div style="position: absolute; left: 265px; top: 70px;">
         <div class="col-10">
             <div class="add-user" style="width: 1300px; margin: 30px auto 0px;

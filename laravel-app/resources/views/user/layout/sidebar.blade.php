@@ -1,4 +1,6 @@
 @extends('layouts.head')
+@php
+@endphp
 @section('content')
     <div class="row">
         <div class="">
@@ -154,8 +156,8 @@
                                     <div class="image d-block">
                                         <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-circle elevation-2" alt="User Image">
                                     </div>
-                                    <div class="info">
-                                        <a href="#" class="d-block">Quỳnh Lê</a>
+                                    <div class="info" style="color: white !important;">
+                                        @yield('userData')
                                     </div>
 
                                 </div>
@@ -179,9 +181,9 @@
                                         data-accordion="false">
 
                                         <li class="nav-item">
-                                            <a href="{{route('infor')}}"
+                                            <a href="{{route('infor', ['email' => $user->email])}}"
                                                class="nav-link
-                                           {{(request()->is("user/infor")) ? 'active' : ''}}
+                                           {{(request()->is("user/infor/*")) ? 'active' : ''}}
 
                                            ">
                                                 <i class="nav-icon  fas fa-users"></i>
@@ -191,8 +193,8 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{route('calendar')}}"
-                                               class="nav-link {{(request()->is("user/calendar")) ? 'active' : ''}}">
+                                            <a href="{{route('calendar', ['email' => $user->email])}}"
+                                               class="nav-link {{(request()->is("user/calendar/*")) ? 'active' : ''}}">
                                                 <i class="nav-icon fas fa-calendar"></i>
                                                 <p>
                                                      Đặt lịch khám
@@ -201,7 +203,7 @@
                                         </li>
                                         <li class="nav-item">
                                             <a href="{{route('message')}}"
-                                               class="nav-link  {{(request()->is("user/message")) ? 'active' : ''}}">
+                                               class="nav-link  {{(request()->is("user/message/*")) ? 'active' : ''}}">
                                                 <i class="nav-icon fas fa-comment-dots"></i>
                                                 <p>
                                                     Tư vấn bác sĩ
