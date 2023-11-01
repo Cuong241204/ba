@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('calendar', function (Blueprint $table) {
             $table->id();
-            $table->string('email');
-            $table->string('content_calendar');
-            $table->date('date_pick_ticket');
+            $table->string('email')->nullable();
+            $table->string('content_calendar')->nullable();
+            $table->date('date_pick_ticket')->nullable();
             $table->string('status')->default('1');
             $table->timestamps();
 

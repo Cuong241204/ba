@@ -53,12 +53,11 @@
                     fetch('/api/get-appointments/'+email, {method: 'get'})
                         .then(response => response.json())
                         .then(data => {
-                            console.log(data);
                             // Xử lý dữ liệu từ API và trả về cho FullCalendar
                             var events = data.calendar.map(appointment => {
                                 return {
                                     id: appointment.id,
-                                    title: appointment.content_calendar,
+                                    title: (appointment.content_calendar) ? appointment.content_calendar : 'Lịch khám' ,
                                     start: appointment.date_pick_ticket
                                 };
                             });
@@ -70,11 +69,6 @@
                             failureCallback(error);
                         });
                 },
-            // {
-            //     id: '1',
-            //         title: 'Lịch khám 1',
-            //     start: '2023-11-01'
-            // },
                 eventClick: function (info) {
                     selectedEventId = info.event.id;
                     popupDate.textContent = 'Ngày: ' + info.event.startStr;
@@ -98,19 +92,35 @@
 
             deleteButton.addEventListener('click', function () {
                 if (selectedEventId) {
-                    // Xoá sự kiện với id tương ứng
                     var event = calendar.getEventById(selectedEventId);
                     if (event) {
                         event.remove();
                     }
+                    fetch('/api/delete-appointment', {
+                        method: 'delete',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            id: selectedEventId
+                        })
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            calendar.refetchEvents();
+                        })
+                        .catch(error => {
+                            console.error(error);
+                        });
+                    x.style.display = 'none';
                 }
                 x.style.display = 'none';
             });
             saveButton.addEventListener('click', function () {
                 // Lấy dữ liệu cần lưu (ngày và nội dung)
                 var appointmentDate = popupDate.textContent.replace('Ngày: ', '');
-                var appointmentContent = popupEvent.textContent.replace('Sự kiện: ', '');
                 var email = document.getElementById('email').value
+                appointmentContent = document.getElementById('popup-event').value;
 
                 // Gọi API để lưu dữ liệu
                 fetch('/api/register-appointment', {
@@ -126,8 +136,7 @@
                 })
                     .then(response => response.json())
                     .then(data => {
-                        // Xử lý kết quả từ API (nếu cần)
-                        console.log(data);
+                        calendar.refetchEvents();
                     })
                     .catch(error => {
                         // Xử lý lỗi (nếu có)

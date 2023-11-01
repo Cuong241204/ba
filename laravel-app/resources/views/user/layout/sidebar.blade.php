@@ -202,7 +202,7 @@
                                         <li class="nav-item">
                                             <a href="{{route('infor')}}"
                                                class="nav-link
-                                           {{(request()->is("user/infor/*")) ? 'active' : ''}}
+                                           {{(request()->is("user/infor")) ? 'active' : ''}}
 
                                            ">
                                                 <i class="nav-icon  fas fa-users"></i>

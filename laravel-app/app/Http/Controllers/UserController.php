@@ -47,6 +47,16 @@ class UserController extends Controller
         return response()->json(['message' => 'Đã đăng ký lịch khám thành công.'], 201);
 
     }
+    public function deleteAppointment(Request $request) {
+        $id = $request->id;
+        $res =  FullCalendar::find($id);
+        if ($res) {
+            $res->delete();
+            return response()->json(['message' => 'Xoá thành công'], 200);
+        } else {
+            return response()->json(['message' => 'Lỗi'], 400);
+        }
+    }
     public function getAppointment($email) {
         $res =  FullCalendar::where('email', $email)->get();
         return response()->json(['calendar' => $res]);
