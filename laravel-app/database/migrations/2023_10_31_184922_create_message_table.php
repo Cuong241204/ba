@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('message', function (Blueprint $table) {
             $table->id();
-            $table->string('from_user_id');
-            $table->string('to_user_td');
-            $table->string('content_message');
-            $table->date('send_at');
+            $table->string('from_user_id')->nullable();
+            $table->string('to_user_td')->nullable();
+            $table->string('content_message')->nullable();
+            $table->date('send_at')->nullable();
             $table->timestamps();
 
         });

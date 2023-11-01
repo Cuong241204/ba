@@ -152,9 +152,9 @@
                         <div class="sidebar">
                             <div class="user-panel mt-3 pb-3 mb-3 ">
                                 <div class="image d-block">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-circle elevation-2" alt="User Image">
+                                    <img id="click-avt" src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-circle elevation-2" alt="User Image">
                                 </div>
-                                <div class="info">
+                                <div id="div-info" class="info" style="display: none">
                                     <a href="#" class="d-block">Cường Đỗ</a>
                                     <div class="side" style="color:white">
                                         <div >
@@ -247,4 +247,20 @@
         }
     </style>
 </div>
+<script>
+    var eventClick = document.getElementById('click-avt');
+    var divInfo = document.getElementById('div-info');
+    var isDivInfoVisible = false;
+
+    eventClick.addEventListener('click', function(event) {
+        if (isDivInfoVisible) {
+            divInfo.style.display = 'none'; // Ẩn 'div-info' nếu nó đang hiển thị
+        } else {
+            divInfo.style.display = 'block'; // Hiển thị 'div-info' nếu nó đang ẩn
+        }
+        isDivInfoVisible = !isDivInfoVisible; // Đảo ngược trạng thái
+    });
+
+
+</script>
 @endsection

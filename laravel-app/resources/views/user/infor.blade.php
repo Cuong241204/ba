@@ -114,14 +114,14 @@
                         @enderror
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Nội dung bệnh</label>
-                            <textarea <?php if ($user->is_admin == 2) { echo "disabled";} ?> class="form-control <?php if ($user->is_admin == 2) { echo "not-edit";} ?>" id="exampleFormControlTextarea1" rows="3" name="desease-content"></textarea>
+                            <textarea <?php if ($user->is_admin == 1) { echo "disabled";} ?> class="form-control <?php if ($user->is_admin == 1) { echo "not-edit";} ?>" id="exampleFormControlTextarea1" rows="3" name="desease-content"></textarea>
                         </div>
                         @error('medicine-content')
                         <span style="color: red; font-style: italic; font-size: 15px" >{{$message}}</span>
                         @enderror
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Nội dung thuốc</label>
-                            <textarea <?php if ($user->is_admin == 2) { echo "disabled";} ?> class="form-control <?php if ($user->is_admin == 2) { echo "not-edit";} ?>" id="exampleFormControlTextarea1" rows="3" name="medicine-content"></textarea>
+                            <textarea <?php if ($user->is_admin == 1) { echo "disabled";} ?> class="form-control <?php if ($user->is_admin == 1) { echo "not-edit";} ?>" id="exampleFormControlTextarea1" rows="3" name="medicine-content"></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Ghi chú</label>

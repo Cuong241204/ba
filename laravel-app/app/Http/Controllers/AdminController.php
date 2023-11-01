@@ -13,7 +13,7 @@ class AdminController extends Controller
     }
     public function managerUsers() {
         $title ='Quản lí bệnh nhân';
-        $nonAdminUsers = User::where('is_admin', '<>', 1)->get();
+        $nonAdminUsers = User::where('is_admin', '<>', 2)->get();
         return view('admin.managerUser', compact(['title', 'nonAdminUsers']));
     }
     public function managerCalendar() {
