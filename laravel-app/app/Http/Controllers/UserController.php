@@ -38,8 +38,8 @@ class UserController extends Controller
 
         $data = [
             'email' => $email,
-            'content_calendar' => $date,
-            'date_pick_ticket' => $content
+            'content_calendar' => $content,
+            'date_pick_ticket' => $date
         ];
 
         FullCalendar::create($data);
@@ -48,7 +48,8 @@ class UserController extends Controller
 
     }
     public function getAppointment($email) {
-        return ($email);
+        $res =  FullCalendar::where('email', $email)->get();
+        return response()->json(['calendar' => $res]);
     }
 
     public function inforCaseRecord() {
