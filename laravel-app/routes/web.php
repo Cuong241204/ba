@@ -47,7 +47,7 @@ Route::prefix('admin')->group(function () {
 Route::prefix('user')->group(function () {
 
     Route::get('/calendar/{email}', [UserController::class, 'calendar'])->name('calendar');
-    Route::get('/infor/{email}', [UserController::class, 'inforCaseRecord'])->name('infor');
+    Route::get('/infor/', [UserController::class, 'inforCaseRecord'])->name('infor');
     Route::get('/message/{email}', [UserController::class, 'message'])->name('message');
     Route::post('/message/', [UserController::class, 'broadcast'])->name('message');
 

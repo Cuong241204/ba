@@ -181,7 +181,7 @@
                                         data-accordion="false">
 
                                         <li class="nav-item">
-                                            <a href="{{route('infor', ['email' => $user->email])}}"
+                                            <a href="{{route('infor')}}"
                                                class="nav-link
                                            {{(request()->is("user/infor/*")) ? 'active' : ''}}
 
