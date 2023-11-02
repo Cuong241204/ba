@@ -27,3 +27,7 @@ Route::post('register-appointment', [UserController::class, 'registerAppointment
 Route::get('get-appointments/{email}', [UserController::class, 'getAppointment']);
 Route::delete('delete-appointment', [UserController::class, 'deleteAppointment']);
 Route::get('/getall-appointments/', [AdminController::class, 'getAllAppointment']);
+
+Route::post('admin/messager', [AdminController::class, 'sendMessage']);
+
+Route::get('admin/getallmessage', [AdminController::class, 'getAllMessage']);

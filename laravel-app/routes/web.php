@@ -35,11 +35,11 @@ Route::prefix('admin')->group(function () {
     Route::get('/addUser', [AdminController::class, 'addUser'])->name('addUser');
     Route::post('/addUser', [AdminController::class, 'setAddUser']);
 
-    Route::get('message', [AdminController::class, 'message'])->name('admin.message');
+    Route::get('/messager', [AdminController::class, 'message'])->name('admin.messager');
 
-    Route::get('inforUser/{email}', [AdminController::class, 'inforUser'])->name('admin.infor');
+    Route::get('/inforUser/{email}', [AdminController::class, 'inforUser'])->name('admin.infor');
 
-    Route::post('inforUser/{email}', [AdminController::class, 'updateInforUser'])->name('updateInforUser');
+    Route::post('/inforUser/{email}', [AdminController::class, 'updateInforUser'])->name('updateInforUser');
 
 
 });
@@ -47,9 +47,10 @@ Route::prefix('admin')->group(function () {
 Route::prefix('user')->group(function () {
 
     Route::get('/calendar/{email}', [UserController::class, 'calendar'])->name('calendar');
-    Route::get('/infor/', [UserController::class, 'inforCaseRecord'])->name('infor');
+    Route::get('/infor/{email}', [UserController::class, 'inforCaseRecord'])->name('infor');
+    Route::post('/infor/{email}', [UserController::class, 'updateUsers']);
     Route::get('/message/{email}', [UserController::class, 'message'])->name('message');
-    Route::post('/message/', [UserController::class, 'broadcast'])->name('message');
+    Route::post('/message/', [UserController::class, 'sendMessage'])->name('message');
 
 });
 

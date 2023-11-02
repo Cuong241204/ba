@@ -154,22 +154,29 @@
                                 <div class="image d-block">
                                     <img id="click-avt" src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-circle elevation-2" alt="User Image">
                                 </div>
-                                <div id="div-info" class="info" style="display: none">
-                                    <a href="#" class="d-block">Cường Đỗ</a>
-                                    <div class="side" style="color:white">
-                                        <div >
-                                            <i class="far fa-eye"></i>
-                                            Xem thông tin
+                                <div class="info" style="color: white !important;">
+                                    @yield('userData')
+
+                                    <div id="div-info" class="info" style="display: none">
+
+                                        <div class="sides" style="color:white">
+                                            <div >
+                                                <i class="far fa-eye"></i>
+                                                Xem thông tin
+                                            </div>
+                                            <div>
+                                                <i class="fas fa-lock"></i>
+                                                Đổi mật khẩu
+                                            </div>
+                                            <div>
+                                                <i class="fas fa-sign-out-alt"></i>
+                                                Đăng xuất
+                                            </div>
                                         </div>
-                                        <div>
-                                            <i class="fas fa-lock"></i>
-                                            Đổi mật khẩu
-                                        </div>
-                                        <div>
-                                            <i class="fas fa-sign-out-alt"></i>
-                                            Đăng xuất
-                                        </div>
+
+
                                     </div>
+
                                 </div>
                             </div>
 
@@ -214,8 +221,8 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{route('admin.message')}}"
-                                           class="nav-link  {{(request()->is("admin/message")) ? 'active' : ''}}">
+                                        <a href="{{route('admin.messager')}}"
+                                           class="nav-link  {{(request()->is("admin/messager")) ? 'active' : ''}}">
                                             <i class="nav-icon fas fa-comment-dots"></i>
                                             <p>
                                                 Tư vấn bệnh nhân

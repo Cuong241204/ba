@@ -1,5 +1,11 @@
 @extends('admin.layout.sidebar')
+@php
+    $admin = session('admin')
+@endphp
 @section('container')
+    @section('userData')
+        <div class="user-data">{{$admin->name}}</div>
+    @endsection
     <style>
         table tbody tr td {
             border: 1px solid #dadada;

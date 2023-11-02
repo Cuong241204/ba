@@ -41,9 +41,10 @@ class AuthencationController extends Controller
 
         if (Auth::attempt($credentials)) {
             if ($user->is_admin == 2) {
-                return redirect('admin/home')->with('message', 'Đăng nhập thành công');
+                session()->put('admin', $user);
+                return redirect('admin/home')->with('message', 'Đăng nhập thành công')->with('user', $user);
             } else {
-                return redirect('user/infor')->with('message', 'Đăng nhập thành công');
+                return redirect("user/infor/$user->email")->with('message', 'Đăng nhập thành công');
             }
         }
 

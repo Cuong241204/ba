@@ -1,4 +1,7 @@
 @extends('admin.layout.sidebar')
+@php
+    $admin = session('admin')
+@endphp
 @section('container')
     @if (\Session::has('message-success'))
         <div class="alert alert-success"
@@ -14,6 +17,9 @@
             {!! \Session::get('message-success') !!}
         </div>
     @endif
+    @section('userData')
+        <div class="user-data">{{$admin->name}}</div>
+    @endsection
     <div style="position: absolute; left: 265px; top: 70px;">
         <div class="col-10">
             <div class="add-user" style="width: 1300px; margin: 30px auto 0px;

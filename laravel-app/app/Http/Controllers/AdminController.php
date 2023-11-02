@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\FullCalendar;
+use App\Models\MessageModel;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -65,7 +66,7 @@ class AdminController extends Controller
         $hashedPassword = password_hash($request->password, PASSWORD_BCRYPT);
         $data = [
             'name' => $request->username,
-            'is_admin' => '2',
+            'is_admin' => '1',
             'email' => $request->Email,
             'tel' => $request->tel,
             'birth' => $request->birth,
@@ -85,7 +86,8 @@ class AdminController extends Controller
     }
     public function message() {
         $title ='Tư vấn bệnh nhân ';
-        return view('admin.message', compact('title'));
+        $users = User::where('is_admin', '<>', 2)->get();
+        return view('admin.message', compact('title', 'users'));
     }
 
     public function inforUser($email) {
@@ -162,5 +164,26 @@ class AdminController extends Controller
     public function getAllAppointment() {
         $res =  FullCalendar::get();
         return response()->json(['calendar' => $res]);
+    }
+
+    public function sendMessage(Request $request) {
+        $user_send = $request->user_send;
+        $user_to = $request->user_to;
+        $content_message = $request->content_message;
+
+        $data = [
+            'from_user_id' => $user_send,
+            'content_message' => $content_message,
+            'to_user_td' => $user_to,
+        ];
+
+        MessageModel::create($data);
+
+        $res = MessageModel::where('from_user_id', $user_send)->get();
+        return response()->json(['message' => $res]);
+    }
+
+    public function getAllMessage() {
+
     }
 }

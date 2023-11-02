@@ -1,5 +1,11 @@
 @extends('admin.layout.sidebar')
+@php
+    $admin = session('admin')
+@endphp
 @section('container')
+    @section('userData')
+        <div class="user-data">{{$admin->name}}</div>
+    @endsection
     <div style="position: absolute; right: -370px; top: 70px;">
         <div id='calendar' style="width: 1200px;"></div>
     </div>

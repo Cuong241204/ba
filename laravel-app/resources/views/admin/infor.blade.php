@@ -1,5 +1,11 @@
 @extends('admin.layout.sidebar')
+@php
+    $admin = session('admin')
+@endphp
 @section('container')
+    @section('userData')
+        <div class="user-data">{{$admin->name }}</div>
+    @endsection
     @if (\Session::has('message-success'))
         <div class="alert alert-success"
              style="position: absolute;
@@ -85,14 +91,14 @@
                             <span style="color: red; font-style: italic; font-size: 15px" >{{$message}}</span>
                             @enderror
                             <div class="form-outline">
-                                <input type="text" id="form12" class="form-control" name="datemedic" value="{{$user->birth_medic}}"/>
+                                <input type="text" id="form12" class="form-control" name="datemedic" value="{{$user->date_medic}}"/>
                                 <label class="form-label" for="form12">Ngày khám</label>
                             </div>
                             @error('idcard')
                             <span style="color: red; font-style: italic; font-size: 15px" >{{$message}}</span>
                             @enderror
                             <div class="form-outline">
-                                <input type="text" id="form12" class="form-control" name="idcard" value="{{$user->idcard}}"/>
+                                <input type="text" id="form12" class="form-control" name="idcard" value="{{$user->id_card}}"/>
                                 <label class="form-label" for="form12">Số thẻ bảo hiểm y tế</label>
                             </div>
                             @error('work')

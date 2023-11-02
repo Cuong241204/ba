@@ -14,6 +14,20 @@
             {!! \Session::get('message') !!}
         </div>
     @endif
+    @if (\Session::has('message-success'))
+        <div class="alert alert-success"
+             style="position: absolute;
+             top: 50px ; z-index: 10000;
+             width: 500px;
+             margin-left: auto;
+             margin-right: auto;
+             left: 0;
+             right: 0;
+             text-align: center;
+        ">
+            {!! \Session::get('message-success') !!}
+        </div>
+    @endif
     @section('userData')
         <div class="user-data">{{($user->name) ? $user->name : 'Xin chào' }}</div>
     @endsection
@@ -32,11 +46,11 @@
                     @endif
                     <div class="row">
                         <div class="col-6">
-                            @error('user-name')
+                            @error('username')
                             <span style="color: red; font-style: italic; font-size: 15px" >{{$message}}</span>
                             @enderror
                             <div class="form-outline">
-                                <input type="text" id="form12" class="form-control" name="user-name" value="{{$user->name}}"/>
+                                <input type="text" id="form12" class="form-control" name="username" value="{{$user->name}}"/>
                                 <label class="form-label" for="form12">Tên bệnh nhân</label>
                             </div>
                             @error('address')
@@ -84,18 +98,18 @@
                                 <input type="text" id="form12" class="form-control" name="birth" value="{{$user->birth}}"/>
                                 <label class="form-label" for="form12">Ngày sinh</label>
                             </div>
-                            @error('date-medic')
+                            @error('date_medic')
                             <span style="color: red; font-style: italic; font-size: 15px" >{{$message}}</span>
                             @enderror
                             <div class="form-outline">
-                                <input type="text" id="form12" class="form-control" name="date-medic" value="{{$user->birth_medic}}"/>
+                                <input type="text" id="form12" class="form-control" name="date_medic" value="{{$user->date_medic}}"/>
                                 <label class="form-label" for="form12">Ngày khám</label>
                             </div>
-                            @error('id-card')
+                            @error('id_card')
                             <span style="color: red; font-style: italic; font-size: 15px" >{{$message}}</span>
                             @enderror
                             <div class="form-outline">
-                                <input type="text" id="form12" class="form-control" name="id-card" value="{{$user->id_card}}"/>
+                                <input type="text" id="form12" class="form-control" name="id_card" value="{{$user->id_card}}"/>
                                 <label class="form-label" for="form12">Số thẻ bảo hiểm y tế</label>
                             </div>
                             @error('work')
@@ -109,26 +123,26 @@
                     </div>
                     <div style="border-top: 1px solid #dadada" >
                         <h4 style="margin-top:30px">Thông tin khám sàng lọc </h4>
-                        @error('desease-content')
+                        @error('desease_content')
                         <span style="color: red; font-style: italic; font-size: 15px" >{{$message}}</span>
                         @enderror
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Nội dung bệnh</label>
-                            <textarea <?php if ($user->is_admin == 1) { echo "disabled";} ?> class="form-control <?php if ($user->is_admin == 1) { echo "not-edit";} ?>" id="exampleFormControlTextarea1" rows="3" name="desease-content"></textarea>
+                            <textarea <?php if ($user->is_admin == 1) { echo "disabled";} ?> class="form-control <?php if ($user->is_admin == 1) { echo "not-edit";} ?>" id="exampleFormControlTextarea1" rows="3" name="desease_content">{{$user->deseasecontent}}</textarea>
                         </div>
-                        @error('medicine-content')
+                        @error('medicine_content')
                         <span style="color: red; font-style: italic; font-size: 15px" >{{$message}}</span>
                         @enderror
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Nội dung thuốc</label>
-                            <textarea <?php if ($user->is_admin == 1) { echo "disabled";} ?> class="form-control <?php if ($user->is_admin == 1) { echo "not-edit";} ?>" id="exampleFormControlTextarea1" rows="3" name="medicine-content"></textarea>
+                            <textarea <?php if ($user->is_admin == 1) { echo "disabled";} ?> class="form-control <?php if ($user->is_admin == 1) { echo "not-edit";} ?>" id="exampleFormControlTextarea1" rows="3" name="medicine_content">{{$user->medicinecontent}}</textarea>
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Ghi chú</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="note" ></textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="note" >{{$user->note}}</textarea>
                         </div>
                         @csrf
-                        <button class="btn btn-primary">
+                        <button type="submit" class="btn btn-primary">
                             <i class="fas fa-save"></i>
                             Lưu lại
                         </button>

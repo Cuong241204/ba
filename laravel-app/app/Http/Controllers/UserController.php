@@ -91,4 +91,55 @@ class UserController extends Controller
     {
 
     }
+
+    public function updateUsers(Request $request, $email) {
+        $request->validate(
+            [
+                'username' => 'required',
+                'address' => 'required',
+                'tel' => 'required',
+                'Email' => 'required|email',
+                'Male' => 'required',
+                'birth' => 'required',
+                'date_medic' => 'required',
+                'id_card' => 'required',
+                'work' => 'required',
+
+            ],[
+                'user_name.required' => 'Họ tên bắt buộc phải nhập',
+                'address.required' => 'Địa chỉ bắt buộc phải nhập',
+                'tel.required' => 'Số điện thoại bắt buộc phải nhập',
+                'Email.required' => 'Email bắt buộc phải nhập',
+                'Email.email' => 'Xin vui lòng kiểm tra lại email',
+                'Male.required' => 'Vui lòng xác minh giới tính',
+                'birth.required' => 'Vui lòng nhập ngày sinh',
+                'date_medic.required' => 'Vui lòng nhập ngày khám',
+                'id_card.required' => 'Số thẻ bảo hiểm bắt buộc phải nhập',
+                'work.required' => 'Vui lòng nhập công việc của bạn',
+
+
+            ]
+        );
+        $dataUpdate = [
+            'name' => $request->username,
+            'email' => $request->email,
+            'tel' => $request->tel,
+            'birth' => $request->birth,
+            'date_medic' => $request->date_medic,
+            'id_card' => $request->id_card,
+            'work' => $request->work,
+            'note' => $request->note,
+        ];
+
+        User::where('email', $email)->update($dataUpdate);
+
+        // Optionally, you can return a success message or redirect
+        return redirect()->back()->with('message-success', 'Thông tin cập nhật thành công');
+
+    }
+
+    public function sendMessage(Request $request) {
+
+    }
+
 }
