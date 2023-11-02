@@ -16,7 +16,7 @@
         </div>
     @endif
     @section('userData')
-        <div class="user-data">{{($user->name) ? $user->name : 'Xin chào' }}</div>
+        <div class="user-data">{{($user->name)}}</div>
     @endsection
     <div style="position: absolute; left: 350px; top: 70px;">
         <div id='calendar' style="width: 1200px;"></div>

@@ -15,6 +15,7 @@ class AdminController extends Controller
     public function managerUsers() {
         $title ='Quản lí bệnh nhân';
         $nonAdminUsers = User::where('is_admin', '<>', 2)->get();
+//        dd($nonAdminUsers);
         return view('admin.managerUser', compact(['title', 'nonAdminUsers']));
     }
     public function managerCalendar() {
@@ -73,11 +74,12 @@ class AdminController extends Controller
             'date_medic' => $request->datemedic,
             'id_card' => $request->idcard,
             'work' => $request->work,
-            'note' => $request->note,
             'deseasecontent' => $request->medicinecontent,
             'medicinecontent' =>  $request->medicinecontent,
             'password' => $hashedPassword,
             'address' => $request->address,
+            'note' => $request->note,
+
         ];
 
         User::create($data);
@@ -183,7 +185,22 @@ class AdminController extends Controller
         return response()->json(['message' => $res]);
     }
 
-    public function getAllMessage() {
+    public function getAllMessage($send, $to) {
 
+        $res = MessageModel::where('from_user_id', $send)->where('to_user_td', $to)->get();
+
+        return response()->json(['messages' => $res])->header('Content-Type', 'application/json');
+
+    }
+
+    public function searchUser(Request $request) {
+        $keySearch = $request->searchUser;
+        $users = User::where('name', $keySearch)->where('is_admin', 1)->get();
+
+        if ($users->isEmpty()) {
+            return redirect('admin/home')->with('');
+        } else {
+            return view('your.view.name', ['users' => $users, 'nonAdminUsers' => $keySearch]);
+        }
     }
 }

@@ -222,7 +222,7 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{route('message')}}"
+                                            <a href="{{route('message', ['email' => $user->email])}}"
                                                class="nav-link  {{(request()->is("user/message/*")) ? 'active' : ''}}">
                                                 <i class="nav-icon fas fa-comment-dots"></i>
                                                 <p>

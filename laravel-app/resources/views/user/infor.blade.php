@@ -29,7 +29,7 @@
         </div>
     @endif
     @section('userData')
-        <div class="user-data">{{($user->name) ? $user->name : 'Xin chào' }}</div>
+        <div class="user-data">{{($user->name) }}</div>
     @endsection
     <div style="position: absolute; left: 265px; top: 70px;">
         <div class="col-10">

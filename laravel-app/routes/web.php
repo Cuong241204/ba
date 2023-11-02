@@ -28,6 +28,7 @@ Route::get('/', [UserController::class, 'welcome'])->name('welcome');
 Route::prefix('admin')->group(function () {
 
     Route::get('/home', [AdminController::class, 'managerUsers'])->name('managerUsers');
+    Route::post('/home', [AdminController::class, 'searchUser']);
 
     Route::get('/calendar', [AdminController::class, 'managerCalendar'])->name('managerCalendar');
 
@@ -50,7 +51,6 @@ Route::prefix('user')->group(function () {
     Route::get('/infor/{email}', [UserController::class, 'inforCaseRecord'])->name('infor');
     Route::post('/infor/{email}', [UserController::class, 'updateUsers']);
     Route::get('/message/{email}', [UserController::class, 'message'])->name('message');
-    Route::post('/message/', [UserController::class, 'sendMessage'])->name('message');
 
 });
 

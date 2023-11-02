@@ -81,13 +81,17 @@
                     nhân
                 </a>
             </div>
-            <div class="filter-search d-flex" style="width: 1300px; margin: 30px auto 0px;">
-                <div class="form-outline" style="width: 50%">
-                    <input type="text" id="form12" class="form-control"/>
-                    <label class="form-label" for="form12">Nhập tên bệnh nhân... </label>
+            <form method="post" action="#">
+                <div class="filter-search d-flex" style="width: 1300px; margin: 30px auto 0px;">
+                    <div class="form-outline" style="width: 50%">
+                        <input type="text" id="form12" class="form-control" name="searchUser"/>
+                        <label class="form-label" for="form12">Nhập tên bệnh nhân... </label>
+                    </div>
+                    @csrf
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
                 </div>
-                <button class="btn btn-primary"><i class="fas fa-search"></i></button>
-            </div>
+            </form>
+
             <div style="outline: 1px solid #dadada;
          border-radius: 10px; width: 1300px;
          margin: 30px auto; max-height: 600px; overflow-y: auto">
@@ -120,7 +124,7 @@
                             </div>
                         </td>
                         <td>
-                            <p class="fw-normal mb-1">{{$user->birth_medic}}</p>
+                            <p class="fw-normal mb-1">{{$user->date_medic}}</p>
                         </td>
                         <td>
                             <span class="badge badge-success rounded-pill d-inline">Đỗ Cường</span>

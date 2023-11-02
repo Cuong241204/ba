@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Events\PusherBroadcast;
 use App\Models\FullCalendar;
+use App\Models\MessageModel;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -68,9 +69,11 @@ class UserController extends Controller
         return view('user/infor', compact('title', 'user'));
     }
 
-    public function message() {
+    public function message($email) {
+        $user = User::where('email', $email)->first();
+        $listAdmins = User::where('is_admin', 2)->get();
         $title = 'Tư vấn bác sĩ';
-        return view('user/message', compact('title'));
+        return view('user/message', compact('title', 'user', 'listAdmins'));
     }
 
     public function broadcast(Request $request) {
@@ -139,7 +142,20 @@ class UserController extends Controller
     }
 
     public function sendMessage(Request $request) {
+        $user_send = $request->user_send;
+        $user_to = $request->user_to;
+        $content_message = $request->content_message;
 
+        $data = [
+            'from_user_id' => $user_send,
+            'content_message' => $content_message,
+            'to_user_td' => $user_to,
+        ];
+
+        MessageModel::create($data);
+
+        $res = MessageModel::where('from_user_id', $user_send)->get();
+        return response()->json(['message' => $res]);
     }
 
 }
